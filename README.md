@@ -4,3 +4,8 @@
 
 - react + typescript + wepback
 - ESLint, Prettier
+
+2. Loader 적용
+
+- style-loader, css-loader
+- file-loader, url-loader
