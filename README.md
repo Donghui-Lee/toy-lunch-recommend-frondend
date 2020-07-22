@@ -9,3 +9,7 @@
 
 - style-loader, css-loader
 - file-loader, url-loader
+
+3. 기본 패키지 구조
+
+4. 샘플 리덕스, 사가 적용

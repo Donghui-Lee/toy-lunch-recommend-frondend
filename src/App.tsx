@@ -1,9 +1,15 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
 
 export default function App() {
   return (
-    <>
-      <h1>점심은 소중해</h1>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={['/@:username', '/']} component={MainPage} />
+        <Route exact path={'/login'} component={LoginPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
