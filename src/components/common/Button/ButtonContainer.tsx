@@ -6,5 +6,5 @@ interface ButtonProps {
 }
 
 export default function ButtonContainer({ text }: ButtonProps) {
-  return <ButtonPresenter text={text}></ButtonPresenter>;
+  return <ButtonPresenter text={text} fullWidth></ButtonPresenter>;
 }

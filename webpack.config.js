@@ -6,6 +6,7 @@ const DEVLEOPMENT = 'development';
 
 // 빌드용 html 파일을 자동 생성
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode,
@@ -23,15 +24,21 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          mode === 'production'
+            ? MiniCssExtractPlugin.loader // 프로덕션 환경
+            : 'style-loader', // 개발 환경
+          'css-loader',
+          'sass-loader',
+        ],
+      },
       // .ts, .tsx 확장자 ts-loader 가 트랜스파일링
       {
         test: /\.(ts|tsx|js)$/,
         exclude: /node_modules/,
         use: 'ts-loader',
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -66,6 +73,8 @@ module.exports = {
   devServer: {
     port: 3001,
     contentBase: __dirname + '/dist/',
-    host: 'localhost',
+    // host: 'localhost',
+    // historyApiFallback: true,
+    host: '0.0.0.0',
   },
 };
