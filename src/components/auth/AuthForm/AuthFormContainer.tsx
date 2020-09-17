@@ -2,9 +2,9 @@ import React from 'react';
 import AuthFormPresenter from './AuthFormPresenter';
 
 interface AuthFormProps {
-  text: string;
+    type: string;
 }
 
-export default function AuthFormContainer({ text }: AuthFormProps) {
-  return <AuthFormPresenter text={text}></AuthFormPresenter>;
+export default function AuthFormContainer({ type }: AuthFormProps) {
+    return <AuthFormPresenter type={type}></AuthFormPresenter>;
 }

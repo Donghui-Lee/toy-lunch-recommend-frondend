@@ -7,35 +7,43 @@
         margin-bottom: 1rem;
     }
 
-    .auth-form-input {
-        font-size: 1rem;
-        border: none;
-        border-bottom: 1px solid $gray-5;
-        padding-bottom: 0.5rem;
-        outline: none;
-        width: 100%;
+    form>button {
+        margin-top: 1rem;
+    }
+}
 
-        &:focus {
-            color: $oc-teal-7;
-            border-bottom: 1px solid $gray-7;
-        }
 
-        &+& {
-            margin-top: 1rem;
-        }
+.auth-form-input {
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid $gray-5;
+    padding-bottom: 0.5rem;
+    outline: none;
+    width: 100%;
+
+    &:focus {
+        // color: #0ca678;
+        border-bottom: 1px solid $gray-7;
     }
 
-    .auth-form-footer {
-        margin-top: 2rem;
-        text-align: right;
+    &+& {
+        margin-top: 1rem;
+    }
+}
 
-        a {
-            color: $gray-6;
-            text-decoration: underline;
 
-            &:hover {
-                color: $gray-9;
-            }
+
+
+.auth-form-footer {
+    margin-top: 2rem;
+    text-align: right;
+
+    a {
+        color: $gray-6;
+        text-decoration: underline;
+
+        &:hover {
+            color: $gray-9;
         }
     }
 }

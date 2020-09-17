@@ -71,10 +71,10 @@ module.exports = {
     }),
   ],
   devServer: {
-    port: 3001,
-    contentBase: __dirname + '/dist/',
+    // port: 3001,
+    contentBase: path.join(__dirname + '/dist/'),
     // host: 'localhost',
-    // historyApiFallback: true,
-    host: '0.0.0.0',
+    historyApiFallback: true,
+    // host: '0.0.0.0',
   },
 };

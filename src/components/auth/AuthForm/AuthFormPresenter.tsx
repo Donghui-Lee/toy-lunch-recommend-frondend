@@ -4,30 +4,46 @@ import { Link } from 'react-router-dom';
 import './AuthForm.scss';
 
 interface AuthFormProps {
-  text: string;
+    type: string;
 }
 
-export default function AuthFormPresenter({ text }: AuthFormProps) {
-  return (
-      <div className="auth-form">
-        <h3>로그인</h3>
-        <form>
-            <input className="auth-form-input"
-            autoComplete="username"
-            name="username"
-            placeholder="아이디"
-            />
-            <input className="auth-form-input"
-            autoComplete="new-password"
-            name="password"
-            placeholder="비밀번호"
-            type="password"
-            />
-            <Button text="로그인"></Button>
-        </form>
-        <div className="auth-form-footer">
-            <Link to="/register">회원가입</Link>
+export default function AuthFormPresenter({ type }: AuthFormProps) {
+    const text = type === 'register' ? '회원가입' : '로그인';
+    return (
+        <div className="auth-form">
+            <h3>{text}</h3>
+            <form>
+                <input
+                    className="auth-form-input"
+                    autoComplete="username"
+                    name="username"
+                    placeholder="아이디"
+                />
+                <input
+                    className="auth-form-input"
+                    autoComplete="new-password"
+                    name="password"
+                    placeholder="비밀번호"
+                    type="password"
+                />
+                {type === 'register' && (
+                    <input
+                        className="auth-form-input"
+                        autoComplete="new-password"
+                        name="passwordConfirm"
+                        placeholder="비밀번호 확인"
+                        type="password"
+                    />
+                )}
+                <Button text={text} fullWidth cyan></Button>
+            </form>
+            <div className="auth-form-footer">
+                {type === 'register' ? (
+                    <Link to="/login">로그인</Link>
+                ) : (
+                    <Link to="/register">회원가입</Link>
+                )}
+            </div>
         </div>
-      </div>
-  );
+    );
 }
