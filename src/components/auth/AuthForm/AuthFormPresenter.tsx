@@ -5,14 +5,15 @@ import './AuthForm.scss';
 
 interface AuthFormProps {
     type: string;
+    onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-export default function AuthFormPresenter({ type }: AuthFormProps) {
+export default function AuthFormPresenter({ type, onSubmit }: AuthFormProps) {
     const text = type === 'register' ? '회원가입' : '로그인';
     return (
         <div className="auth-form">
-            <h3>{text}</h3>
-            <form>
+            {/* <h3>{text}</h3> */}
+            <form onSubmit={onSubmit}>
                 <input
                     className="auth-form-input"
                     autoComplete="username"

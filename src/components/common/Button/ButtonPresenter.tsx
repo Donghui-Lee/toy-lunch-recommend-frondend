@@ -6,12 +6,14 @@ interface ButtonProps {
     text: string;
     fullWidth?: boolean;
     cyan?: boolean;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function ButtonPresenter({
     text,
     fullWidth,
     cyan,
+    onClick,
 }: ButtonProps) {
     return (
         <button
@@ -20,6 +22,7 @@ export default function ButtonPresenter({
                 { fullWidth: fullWidth },
                 { cyan: cyan },
             )}
+            onClick={onClick}
         >
             {text}
         </button>
